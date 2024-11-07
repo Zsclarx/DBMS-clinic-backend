@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, content=initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>User Sign Up - Page 2</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1>Patient Sign Up</h1>
+        <form id="signupForm">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label>Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">--Select--</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                    <option value="OTHER">Other</option>
+                </select>
+
+                <label>Date of Birth:</label>
+                <div class="dob-container">
+                    <input type="number" id="yearOfBirth" name="yearOfBirth" min="1900" max="2023" placeholder="YYYY" required>
+                    <input type="number" id="monthOfBirth" name="monthOfBirth" min="1" max="12" placeholder="MM" required>
+                    <input type="number" id="dayOfBirth" name="dayOfBirth" min="1" max="31" placeholder="DD" required>
+                </div>
+            </fieldset>
+
+            <button type="button" id="backButton">Back</button>
+            <button type="button" id="nextButton">Next</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('backButton').onclick = function() {
+        window.location.href = "signup_patient1.html"; // Redirect to page 1
+    }
+
+    document.getElementById('nextButton').onclick = function() {
+        localStorage.setItem('firstName', document.getElementById('firstName').value);
+        localStorage.setItem('lastName', document.getElementById('lastName').value);
+        localStorage.setItem('gender', document.getElementById('gender').value);
+        localStorage.setItem('yearOfBirth', document.getElementById('yearOfBirth').value);
+        localStorage.setItem('monthOfBirth', document.getElementById('monthOfBirth').value);
+        localStorage.setItem('dayOfBirth', document.getElementById('dayOfBirth').value);
+        window.location.href = "signup_patient3.html"; // Redirect to page 3
+    }
+</script>
+</body>
+</html>

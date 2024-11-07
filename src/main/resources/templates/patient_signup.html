@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Patient Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Patient Sign Up</h1>
+            <form action="/register" method="post">
+                <input type="hidden" id="username" name="username">
+                <input type="hidden" id="password" name="password">
+                <input type="hidden" id="role" name="role">
+                <input type="hidden" id="firstName" name="firstName">
+                <input type="hidden" id="lastName" name="lastName">
+                <input type="hidden" id="email" name="email">
+                <input type="hidden" id="contactInfo" name="contactInfo">
+                <input type="hidden" id="gender" name="gender">
+                <input type="hidden" id="yearOfBirth" name="yearOfBirth">
+                <input type="hidden" id="monthOfBirth" name="monthOfBirth">
+                <input type="hidden" id="dayOfBirth" name="dayOfBirth">
+
+                <label for="diseases">Known Diseases:</label>
+                <textarea id="diseases" name="diseases"></textarea>
+
+                <label for="emergencyContactName">Emergency Contact Name:</label>
+                <input type="text" id="emergencyContactName" name="emergencyContactName" required>
+
+                <label for="emergencyContactAddress">Emergency Contact Address:</label>
+                <textarea id="emergencyContactAddress" name="emergencyContactAddress" required></textarea>
+
+                <label for="emergencyContactPhone">Emergency Contact Phone:</label>
+                <input type="text" id="emergencyContactPhone" name="emergencyContactPhone" required>
+
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="/signin">Sign in here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve user data from localStorage and populate the fields
+        document.getElementById('username').value = localStorage.getItem('username');
+        document.getElementById('password').value = localStorage.getItem('password');
+        document.getElementById('role').value = localStorage.getItem('role');
+        document.getElementById('firstName').value = localStorage.getItem('firstName');
+        document.getElementById('lastName').value = localStorage.getItem('lastName');
+        document.getElementById('email').value = localStorage.getItem('email');
+        document.getElementById('contactInfo').value = localStorage.getItem('contactInfo');
+        document.getElementById('gender').value = localStorage.getItem('gender');
+        document.getElementById('yearOfBirth').value = localStorage.getItem('yearOfBirth');
+        document.getElementById('monthOfBirth').value = localStorage.getItem('monthOfBirth');
+        document.getElementById('dayOfBirth').value = localStorage.getItem('dayOfBirth');
+    </script>
+</body>
+</html>

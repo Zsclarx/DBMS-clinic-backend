@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Patient Sign Up - Final Entry</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1>Patient Entry</h1>
+        <form id="patientForm" action="/user/signup" method="post">
+            <fieldset>
+                <legend>Patient Information</legend>
+                <label for="diseases">Diseases:</label>
+                <textarea id="diseases" name="diseases" required></textarea>
+
+                <label for="emergencyContactName">Emergency Contact Name:</label>
+                <input type="text" id="emergencyContactName" name="emergencyContactName" required>
+
+                <label for="emergencyContactPhone">Emergency Contact Phone:</label>
+                <input type="text" id="emergencyContactPhone" name="emergencyContactPhone" required>
+
+                <label for="emergencyContactAddress">Emergency Contact Address:</label>
+                <textarea id="emergencyContactAddress" name="emergencyContactAddress" required></textarea>
+            </fieldset>
+
+            <button type="submit">Submit Patient Info</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Prepare data from local storage before submitting
+    document.getElementById('patientForm').onsubmit = function() {
+        const userData = {
+            username: localStorage.getItem('username'),
+            password: localStorage.getItem('password'),
+            firstName: localStorage.getItem('firstName'),
+            lastName: localStorage.getItem('lastName'),
+            gender: localStorage.getItem('gender'),
+            yearOfBirth: localStorage.getItem('yearOfBirth'),
+            monthOfBirth: localStorage.getItem('monthOfBirth'),
+            dayOfBirth: localStorage.getItem('dayOfBirth'),
+            age: localStorage.getItem('age'),
+            bloodGroup: localStorage.getItem('bloodGroup'),
+            address: localStorage.getItem('address'),
+            email: localStorage.getItem('email'),
+            contactInfo: localStorage.getItem('contactInfo'),
+            diseases: document.getElementById('diseases').value,
+            emergencyContactName: document.getElementById('emergencyContactName').value,
+            emergencyContactPhone: document.getElementById('emergencyContactPhone').value,
+            emergencyContactAddress: document.getElementById('emergencyContactAddress').value
+        };
+
+        // Make the POST request to your controller
+        fetch('/user/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data); // Handle response
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        return false; // Prevent default form submission
+    };
+</script>
+</body>
+</html>

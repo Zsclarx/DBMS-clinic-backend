@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>User Sign Up - Patient Page 3</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1>Patient Sign Up</h1>
+        <form id="signupForm">
+            <fieldset>
+                <legend>Patient Information</legend>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="bloodGroup">Blood Group:</label>
+                <input type="text" id="bloodGroup" name="bloodGroup" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="contactInfo">Contact Information:</label>
+                <input type="tel" id="contactInfo" name="contactInfo" required>
+            </fieldset>
+
+            <button type="button" id="backButton">Back</button>
+            <button type="button" id="nextButton">Next</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('backButton').onclick = function() {
+        window.location.href = "signup_patient2.html"; // Redirect to Page 2
+    }
+
+    document.getElementById('nextButton').onclick = function() {
+        localStorage.setItem('age', document.getElementById('age').value);
+        localStorage.setItem('bloodGroup', document.getElementById('bloodGroup').value);
+        localStorage.setItem('address', document.getElementById('address').value);
+        localStorage.setItem('email', document.getElementById('email').value);
+        localStorage.setItem('contactInfo', document.getElementById('contactInfo').value);
+
+        // Redirect to Patient Entry page
+        window.location.href = "patient_entry.html";
+    }
+</script>
+</body>
+</html>

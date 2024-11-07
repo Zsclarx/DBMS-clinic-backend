@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Patient Sign Up - Page 1</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1>Patient Sign Up</h1>
+        <form id="signupForm">
+            <fieldset>
+                <legend>Account Information</legend>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </fieldset>
+
+            <button type="button" id="nextButton">Next</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('nextButton').onclick = function() {
+        localStorage.setItem('username', document.getElementById('username').value);
+        localStorage.setItem('password', document.getElementById('password').value);
+        window.location.href = "signup_patient2.html"; // Redirect to page 2
+    }
+</script>
+</body>
+</html>
